@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bierkollektion</title>
+<meta name="description" content="Sammle deutsche Biere: Logo antippen, sobald du es getrunken hast.">
+<meta name="theme-color" content="#16100b">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Bierkollektion">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Bier<span>kollektion</span></h1>
+      <div class="sub">Tippe auf ein Logo, sobald du das Bier getrunken hast.</div>
+    </div>
+    <div class="progress">
+      <div class="pg"><div class="lbl"><span>Marken</span><span id="pB">0 %</span></div><div class="num" id="nB">0 <small>/ 0</small></div><div class="bar"><i id="bB" style="width:0"></i></div></div>
+      <div class="pg"><div class="lbl"><span>Sorten</span><span id="pV">0 %</span></div><div class="num" id="nV">0 <small>/ 0</small></div><div class="bar"><i id="bV" style="width:0"></i></div></div>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="row">
+      <div class="seg" id="mode">
+        <button data-m="marken" class="on">Marken</button>
+        <button data-m="sorten">Sorten</button>
+      </div>
+      <input class="search" id="q" type="search" placeholder="Suchen: Marke, Sorte, Ort …" autocomplete="off">
+      <div class="seg" id="status">
+        <button data-s="all" class="on">Alle</button>
+        <button data-s="got">Gesammelt</button>
+        <button data-s="open">Offen</button>
+      </div>
+      <select id="reg" aria-label="Bundesland"><option value="">Alle Bundesländer</option></select>
+    </div>
+    <div class="chips" id="chips"></div>
+  </div>
+
+  <main id="main"></main>
+
+  <footer>
+    <span id="store"></span>
+    <span class="acts">
+      <button class="btn" id="exp" title="Sammlung als Datei sichern oder teilen">Backup sichern</button>
+      <button class="btn" id="imp" title="Gesicherte Sammlung laden (wird zusammengeführt)">Backup laden</button>
+      <input type="file" id="impFile" accept=".json,application/json,text/plain" hidden>
+    </span>
+    <span id="cat"></span>
+  </footer>
+</div>
+
+<div class="ov" id="ov"><div class="sheet" id="sheet" role="dialog" aria-modal="true"></div></div>
+<div class="toast" id="toast"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <radialGradient id="gl" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".25"/></radialGradient>
+</defs></svg>
+
+<noscript><p style="padding:20px">Bitte JavaScript aktivieren.</p></noscript>
+<script src="js/katalog.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
